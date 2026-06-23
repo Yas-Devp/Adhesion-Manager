@@ -1,0 +1,38 @@
+header{
+    position: absolute;
+    top: 0;
+    background-color: #00000067;
+    width: 100%;
+}
+
+head nav{
+    margin: 0 auto;
+    width: fit-content;
+}
+
+header nav ul{
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+    height: 50px;
+}
+
+header nav ul li{
+    font-weight: bold;
+    transition: 0.2s ease-in;
+}
+
+header nav ul li a{
+    text-decoration: none;
+    color: white;
+}
+
+header nav ul li:hover{
+    font-size: large;
+    cursor: pointer;
+    text-decoration: underline;
+}

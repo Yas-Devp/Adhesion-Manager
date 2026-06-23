@@ -25,6 +25,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navBar.css">
     <title>page d'Insertion (Adhesion)</title>
 </head>
 <body>
@@ -32,7 +33,7 @@
         <nav>
             <ul>
                 <li><a href="insertion.php">Inserer</a></li>
-                <li><a href="rechercher.php">chercher</a></li>
+                <li><a href="searchInDB.php">chercher</a></li>
                 <li><a href="maj.php">mise a jour</a></li>
                 <li><a href="suppression.php">supprimer</a></li>
             </ul>
