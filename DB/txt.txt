@@ -1,0 +1,10 @@
+note to myself:
+next task is to add function for insertion process
+last thing was the setup of the DB
+
+
+Aperçu SQL :
+
+this is the sql request I use :
+
+CREATE TABLE `gestion_adhesion`.`enterprise` (`id_enterprise` INT NOT NULL AUTO_INCREMENT , `nom_prenom` VARCHAR(255) NOT NULL , `adresse` TEXT NOT NULL , `ville` VARCHAR(255) NOT NULL , `telephone` VARCHAR(20) NOT NULL , `email` VARCHAR(50) NULL , `site_web` VARCHAR(255) NULL , `capital` DECIMAL(15.2) NOT NULL , `effectif` INT NOT NULL , `date_creation` DATE NOT NULL , `raison_social` VARCHAR(255) NOT NULL , `secteur_activite` VARCHAR(255) NOT NULL , `created_at` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , `forme_jurdique` ENUM('PP','SARL','SNC','SA') NOT NULL DEFAULT 'SARL' , PRIMARY KEY (`id_enterprise`)) ENGINE = InnoDB;
