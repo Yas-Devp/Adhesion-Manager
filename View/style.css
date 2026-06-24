@@ -75,3 +75,14 @@ input:not([type="submit"]):hover{
     gap: 7px;
     margin-bottom: 10px;
 }
+
+.double{
+    align-items: normal;
+    justify-content: center;
+    gap: 10px;
+}
+
+.double input{
+    width: 30%;
+    margin-left: 0;
+}

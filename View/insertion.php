@@ -44,7 +44,7 @@
             <label for="forme_jurd">Forme Jurdique de l'enterprise : </label>
             <div class="choices">
                 <input type="radio" name="forme_jurdique" id="forme_jurd" value="pp"><b>PP</b>
-                <input type="radio" name="forme_jurdique" id="forme_jurd" value="sarl"><b>SARL</b>
+                <input type="radio" name="forme_jurdique" id="forme_jurd" value="sarl" checked><b>SARL</b>
                 <input type="radio" name="forme_jurdique" id="forme_jurd" value="snc"><b>SNC</b>
                 <input type="radio" name="forme_jurdique" id="forme_jurd" value="sa"><b>SA</b>
             </div>
@@ -103,6 +103,11 @@
         <div class="field">
             <label for="date_cre">Date de creation: </label>
             <input type="date" name="date_cre" id="date_cre">
+        </div>
+
+        <div class="field double">
+            <input type="text" name="ice" placeholder="ICE" required>
+            <input type="text" name="rc" placeholder="RC" required>
         </div>
 
         <input type="submit" name="submit" id="submit" value="Inserer">

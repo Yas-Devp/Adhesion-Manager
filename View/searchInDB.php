@@ -192,7 +192,7 @@
                         }
                     }
                 ?>
-        <table>
+        </table>
     </div>
 
     <script>
@@ -211,9 +211,10 @@
 
 
         const rows = document.querySelectorAll("table tbody tr");
-        rows.forEach((row) => {
+        rows.forEach((row, index) => {
             row.addEventListener("click", function () {
 
+                if(index === 0) return ;
                 if (this.nextElementSibling && this.nextElementSibling.classList.contains("ops-row")) {
                     this.nextElementSibling.remove();
                     return;

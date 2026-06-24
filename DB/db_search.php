@@ -1,7 +1,7 @@
 <?php
     function checherDB($type, $donnee){
         global $conn;
-    
+
         $sql = $type === "r_s" ? "SELECT * FROM enterprise WHERE raison_social LIKE ?" : ($type === "ice" ? "SELECT * FROM enterprise WHERE ice=?" : "SELECT * FROM enterprise WHERE nom_prenom LIKE ?");
         if($type !== "ice") $donnee = "%$donnee%";
         $stmt = $conn->prepare($sql);
