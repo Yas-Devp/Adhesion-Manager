@@ -1,6 +1,6 @@
 <?php
-    include_once("./DB/db_connection.php");
-    include_once("./DB/db_search.php");
+    include_once("../DB/db_connection.php");
+    include_once("../DB/db_search.php");
 ?>
 
 <!DOCTYPE html>
@@ -62,6 +62,9 @@
             transform: translateY(-20px)
         }
 
+        #options{
+            height: 0px;
+        }
         .options_search{
             height: 0px;
             overflow: hidden;

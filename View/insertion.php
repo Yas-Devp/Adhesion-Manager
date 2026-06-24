@@ -1,6 +1,6 @@
 <?php
-    include_once("./DB/db_connection.php");
-    include_once("./DB/db_insertion.php");
+    include_once("../DB/db_connection.php");
+    include_once("../DB/db_insertion.php");
 
     if(isset($_POST['submit'])){
         $f_j = $_POST['forme_jurdique'];

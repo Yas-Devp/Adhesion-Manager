@@ -8,3 +8,154 @@ Aperçu SQL :
 this is the sql request I use :
 
 CREATE TABLE `gestion_adhesion`.`enterprise` (`id_enterprise` INT NOT NULL AUTO_INCREMENT , `nom_prenom` VARCHAR(255) NOT NULL , `adresse` TEXT NOT NULL , `ville` VARCHAR(255) NOT NULL , `telephone` VARCHAR(20) NOT NULL , `email` VARCHAR(50) NULL , `site_web` VARCHAR(255) NULL , `capital` DECIMAL(15.2) NOT NULL , `effectif` INT NOT NULL , `date_creation` DATE NOT NULL , `raison_social` VARCHAR(255) NOT NULL , `secteur_activite` VARCHAR(255) NOT NULL , `created_at` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , `forme_jurdique` ENUM('PP','SARL','SNC','SA') NOT NULL DEFAULT 'SARL' , PRIMARY KEY (`id_enterprise`)) ENGINE = InnoDB;
+
+
+=========[ Full project strucuture suggested by chatgpt : ]==========
+
+Your current pages are a good start:
+
+1. **Enterprise Registration Page**
+2. **Enterprise Search Page**
+
+If you add an `adhesions` table, I would organize the application like this:
+
+## 1. Enterprise Registration Page
+
+Purpose: Create a new company.
+
+**Fields:**
+
+* Raison sociale
+* Nom du représentant
+* Forme juridique
+* ICE
+* RC
+* Téléphone
+* Email
+* Capital
+* Adresse
+
+**Actions:**
+
+* Save enterprise
+
+After saving, redirect to the company details page.
+
+---
+
+## 2. Enterprise Search Page
+
+Search by:
+
+* ICE
+* Raison sociale
+* Nom du représentant
+
+Results table:
+
+| ICE   | Raison Sociale | Représentant | Actions |
+| ----- | -------------- | ------------ | ------- |
+| 00123 | ABC SARL       | Ahmed Alaoui | View    |
+
+Clicking **View** opens the company profile.
+
+---
+
+## 3. Company Details Page (Very Important)
+
+This becomes the central page.
+
+Example:
+
+```text
+Entreprise : ABC SARL
+ICE : 00123456789
+Téléphone : 06XXXXXXXX
+
+[Edit Enterprise]
+
+-----------------------------------
+Adhésions
+-----------------------------------
+
+2025 | Active | 1000 DH | Details
+2024 | Expirée | 1000 DH | Details
+
+[+ New Adhesion]
+```
+
+This page shows:
+
+* Enterprise information
+* Adhesion history
+
+---
+
+## 4. New Adhesion Page / Modal
+
+When the user clicks **New Adhesion**:
+
+```text
+Entreprise : ABC SARL
+
+Année : 2025
+Date adhésion : 01/01/2025
+Date expiration : 31/12/2025
+Montant : 1000 DH
+Statut : Active
+
+[Save]
+```
+
+The enterprise is already selected because you came from its profile.
+
+---
+
+## 5. Adhesion Details Page
+
+```text
+Adhésion N° 25
+
+Entreprise : ABC SARL
+
+Date adhésion : 01/01/2025
+Date expiration : 31/12/2025
+Montant : 1000 DH
+Statut : Active
+
+Paiements :
+--------------------------------
+01/01/2025 | 1000 DH | Espèces
+--------------------------------
+
+[Add Payment]
+```
+
+---
+
+## Suggested Workflow
+
+```text
+Search Enterprise
+       |
+       v
+Company Profile
+       |
+       +--> Edit Enterprise
+       |
+       +--> Create Adhesion
+       |
+       +--> View Adhesions
+                 |
+                 +--> Payments
+```
+
+For an internship project, this structure looks much more like a real business application and demonstrates:
+
+* Database normalization
+* One-to-many relationships
+* CRUD operations
+* Search functionality
+* Membership management history
+
+If you're using Laravel, Spring Boot, ASP.NET, or another framework, I can also help you design the routes, controllers, and database schema in more detail.
