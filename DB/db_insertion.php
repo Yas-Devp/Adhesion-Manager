@@ -1,12 +1,12 @@
 <?php
-    function insererDB($f_j, $r_s, $n_p, $adr, $vll, $tel, $email, $s_a, $web, $capital, $eff, $d_c){
+    function insererDB($f_j, $r_s, $n_p, $adr, $vll, $tel, $email, $s_a, $web, $capital, $eff, $d_c, $ice, $rc){
         global $conn;
         $f_j_allowed = ['PP', 'SARL', 'SNC', 'SA'];
         $f_j = strtoupper($f_j);
         $stmt = $conn->prepare(
             "INSERT INTO enterprise
-            ( nom_prenom, adresse, ville, telephone, email, site_web, capital, effectif, date_creation, raison_social, secteur_activite, forme_jurdique)
-            VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+            ( nom_prenom, adresse, ville, telephone, email, site_web, capital, effectif, date_creation, raison_social, secteur_activite, forme_jurdique, ice, rc)
+            VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
         );
 
         if (!$stmt) {
@@ -18,7 +18,7 @@
         }
 
         $stmt->bind_param(
-            "ssssssdissss",
+            "ssssssdissssii",
             $n_p,
             $adr,
             $vll,
@@ -30,7 +30,9 @@
             $d_c,
             $r_s,
             $s_a,
-            $f_j
+            $f_j,
+            $ice,
+            $rc
         );
 
         if ($stmt->execute()) {

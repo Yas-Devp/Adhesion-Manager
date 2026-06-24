@@ -24,6 +24,9 @@ header nav ul{
 header nav ul li{
     font-weight: bold;
     transition: 0.2s ease-in;
+    background-color: rgb(48, 124, 237);
+    border-radius: 5px;
+    padding: 5px;
 }
 
 header nav ul li a{
@@ -35,4 +38,5 @@ header nav ul li:hover{
     font-size: large;
     cursor: pointer;
     text-decoration: underline;
+    background-color: rgb(32, 82, 155);
 }

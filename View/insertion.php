@@ -15,8 +15,24 @@
         $capital = $_POST['capital'];
         $eff = $_POST['effectif'];
         $d_c = $_POST['date_cre'] ?? date('Y-m-d');
+        $ice = $_POST['ice'];
+        $rc = $_POST['rc'];
 
-        insererDB($f_j, $r_s, $n_p, $adr, $vll, $tel, $email, $s_a, $web, $capital, $eff, $d_c);
+        insererDB($f_j,
+                  $r_s,
+                  $n_p,
+                  $adr,
+                  $vll,
+                  $tel,
+                  $email,
+                  $s_a,
+                  $web,
+                  $capital,
+                  $eff,
+                  $d_c,
+                  $ice,
+                  $rc
+                );
     }
 ?>
 <!DOCTYPE html>
@@ -34,7 +50,6 @@
             <ul>
                 <li><a href="insertion.php">Inserer</a></li>
                 <li><a href="searchInDB.php">chercher</a></li>
-                <li><a href="maj.php">mise a jour</a></li>
             </ul>
         </nav>
     </header>

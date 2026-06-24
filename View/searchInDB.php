@@ -59,7 +59,6 @@
             color: rgb(48, 124, 237);
             font-weight: bold;
             cursor: pointer;
-            transform: translateY(-20px)
         }
 
         #options{
@@ -141,7 +140,6 @@
             <ul>
                 <li><a href="insertion.php">Inserer</a></li>
                 <li><a href="searchInDB.php">chercher</a></li>
-                <li><a href="maj.php">mise a jour</a></li>
             </ul>
         </nav>
     </header>
@@ -161,7 +159,7 @@
                 </div>
             </div>
         </div>
-        <span onclick="toggleBar()" id="search_btn" style="transition: 0.4s">⮟</span>
+        <span onclick="toggleBar()" id="toggle_btn" style="transition: 0.4s">⮟</span>
     </form>
 
     <div class="search_results">
@@ -198,7 +196,7 @@
     <script>
         function toggleBar(){
             const options = document.getElementById("options");
-            const toggle_btn = document.getElementById("search_btn");
+            const toggle_btn = document.getElementById("toggle_btn");
             if(options.style.height === "0px"){
                 options.style.height = "50px";
                 toggle_btn.style.transform = "rotate(180deg)";
@@ -230,7 +228,7 @@
                 let firstTdText = row.querySelector("td").textContent;
                 td.innerHTML = `
                     <a href="update.php?id=${firstTdText}" class="btn edit">Modifier</a>
-                    <a href="delete?id=${firstTdText}" class="btn delete">Supprimer</a>
+                    <a href="delete.php?id=${firstTdText}" class="btn delete">Supprimer</a>
                 `;
 
                 opsRow.appendChild(td);
