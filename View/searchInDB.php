@@ -77,8 +77,61 @@
             transition: 0.5s;
         }
 
-        table, td{
-            border: 2px solid #000;
+        table {
+            width: 90%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        thead {
+            background-color: #2f80ed;
+            color: white;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        tr {
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+        }
+
+        tr:not(tr:first-child):hover {
+            background-color: #f5f9ff;
+        }
+
+        td {
+            color: #333;
+            font-size: 14px;
+        }
+
+        .ops-row td {
+            background: #f8f9fa;
+            padding: 10px;
+        }
+
+        .btn {
+            padding: 6px 12px;
+            margin: 5px;
+            text-decoration: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 13px;
+        }
+
+        .edit {
+            background: #2ecc71;
+        }
+
+        .delete {
+            background: #e74c3c;
         }
     </style>
 </head>
@@ -89,7 +142,6 @@
                 <li><a href="insertion.php">Inserer</a></li>
                 <li><a href="searchInDB.php">chercher</a></li>
                 <li><a href="maj.php">mise a jour</a></li>
-                <li><a href="suppression.php">supprimer</a></li>
             </ul>
         </nav>
     </header>
@@ -156,6 +208,34 @@
             }
             
         }
+
+
+        const rows = document.querySelectorAll("table tbody tr");
+        rows.forEach((row) => {
+            row.addEventListener("click", function () {
+
+                if (this.nextElementSibling && this.nextElementSibling.classList.contains("ops-row")) {
+                    this.nextElementSibling.remove();
+                    return;
+                }
+
+                const opsRow = document.createElement("tr");
+                opsRow.classList.add("ops-row");
+
+                const td = document.createElement("td");
+                td.colSpan = this.children.length;
+                td.style.textAlign = "center";
+
+                let firstTdText = row.querySelector("td").textContent;
+                td.innerHTML = `
+                    <a href="update.php?id=${firstTdText}" class="btn edit">Modifier</a>
+                    <a href="delete?id=${firstTdText}" class="btn delete">Supprimer</a>
+                `;
+
+                opsRow.appendChild(td);
+                this.parentNode.insertBefore(opsRow, this.nextSibling);
+            });
+        });
     </script>
 </body>
 </html>

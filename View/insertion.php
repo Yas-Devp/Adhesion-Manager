@@ -35,7 +35,6 @@
                 <li><a href="insertion.php">Inserer</a></li>
                 <li><a href="searchInDB.php">chercher</a></li>
                 <li><a href="maj.php">mise a jour</a></li>
-                <li><a href="suppression.php">supprimer</a></li>
             </ul>
         </nav>
     </header>
