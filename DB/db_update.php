@@ -1,5 +1,5 @@
 <?php
-    function updateDB($id, $f_j, $r_s, $n_p, $tel, $email, $ice, $rc) {
+    function updateDB($id, $f_j, $r_s, $n_p, $tel, $email) {
         global $conn;
 
         $f_j_allowed = ['PP', 'SARL', 'SA', 'SNC'];
@@ -34,16 +34,7 @@
             $types .= "s";
             $params[] = $email;
         }
-        if (!empty($ice)) {
-            $fields[] = "ice = ?";
-            $types .= "s";
-            $params[] = $ice;
-        }
-        if (!empty($rc)) {
-            $fields[] = "rc = ?";
-            $types .= "s";
-            $params[] = $rc;
-        }
+
 
         if (empty($fields)) {
             return false; 

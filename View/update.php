@@ -26,10 +26,8 @@
         $n_p   = $_POST['np'] ?? '';
         $tel   = $_POST['tel'] ?? '';
         $email = $_POST['email'] ?? '';
-        $ice   = $_POST['ice'] ?? '';
-        $rc    = $_POST['rc'] ?? '';
 
-        $success = updateDB($id, $f_j, $r_s, $n_p, $tel, $email, $ice, $rc);
+        $success = updateDB($id, $f_j, $r_s, $n_p, $tel, $email);
 
         if ($success) {
             unset($_SESSION['id']);
@@ -84,10 +82,6 @@
             <input type="email" name="email" id="email" placeholder="exemple123@gmail.com">
         </div>
 
-        <div class="field double">
-            <input type="text" name="ice" placeholder="ICE"  >
-            <input type="text" name="rc" placeholder="RC"  >
-        </div>
 
         <input type="submit" name="submit" id="submit" value="Modifier">
     </form>
