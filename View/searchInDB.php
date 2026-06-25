@@ -132,6 +132,9 @@
         .delete {
             background: #e74c3c;
         }
+        .adhesions{
+            background :#2f80ed;
+        }
     </style>
 </head>
 <body>
@@ -227,6 +230,7 @@
 
                 let firstTdText = row.querySelector("td").textContent;
                 td.innerHTML = `
+                    <a href="adhesions.php?id=${firstTdText}" class="btn adhesions">Adhesions</a>
                     <a href="update.php?id=${firstTdText}" class="btn edit">Modifier</a>
                     <a href="delete.php?id=${firstTdText}" class="btn delete">Supprimer</a>
                 `;

@@ -35,6 +35,8 @@
                 );
     }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -97,7 +99,7 @@
 
         <div class="field">
             <label for="sect_act">Secteur d'activite : </label>
-            <input type="text" name="sect_act" id="sect_act" required>
+            <input type="text" name="sect_act" id="sect_act" placeholder="separes par ',' (exemple: BTP, AEP)" required>
         </div>
 
         <div class="field">

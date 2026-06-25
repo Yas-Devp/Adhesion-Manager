@@ -158,4 +158,31 @@ For an internship project, this structure looks much more like a real business a
 * Search functionality
 * Membership management history
 
-If you're using Laravel, Spring Boot, ASP.NET, or another framework, I can also help you design the routes, controllers, and database schema in more detail.
+
+===========================================================================
+
+
+789 line(full project) right now 0-0
+
+========
+
+Activities DataBase :
+
+* Infrastructure & Industry
+
+BTP: Bâtiment et Travaux Publics (Construction & Public Works)
+AEP: Alimentation en Eau Potable (Drinking Water Supply)
+VRD: Voirie et Réseaux Divers (Roads & Utility Networks)
+STE: Label used for Sociétés de Services (often appended to mechanical/electrical outsourcing)
+
+* Commerce & Trade
+
+IMP/EXP: Import-Export (International Trading)
+MD DE BIENS: Marchand de Biens (General Wholesale/Retail Merchant)
+CHRH: Cafés, Hôtels, Restaurants, et Hébergement (Hospitality sector macro-group)
+
+* Services & Technology
+
+SSII: Société de Services en Ingénierie Informatique (IT & Software Dev companies)
+TD: Travaux Divers (The official catch-all acronym for miscellaneous physical works)
+SD: Services Divers / Prestations Diverses (The official catch-all acronym for broad service provisions)
