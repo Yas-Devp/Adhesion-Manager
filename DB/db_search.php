@@ -20,10 +20,9 @@
                 $data[] = $row;
             }
         }
-
-
         //lol , I am debigging here - by yassine 0-0
         //print_r($data);
+
         $stmt->close();
         return $data;
     }

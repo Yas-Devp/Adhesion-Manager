@@ -6,11 +6,20 @@
 
 
     $data = array();
-    if(isset($_GET['id']) && !empty($_GET['id'])){
-        $id = $_GET['id'];
-        $data = getAdhesion($id);
-    }else{
-        die("Erreur: On ne peux pas traiter cette operation !");
+    $id = NULL;
+    if(isset($_POST['submit'])){
+        $id = intval($_POST['id']);
+        $d_a = $_POST['d_a'];
+        $d_e = $_POST['d_e'];
+        $statut = $_POST['statut'];
+
+        addAdhesion($id, $d_a, $d_e, $statut);
+        exit();
+    }else if(isset($_GET['id']) && !empty($_GET['id'])){
+        $id = intval($_GET['id']);
+        $data = getAdhesions($id);
+    } else{
+        die("Erreur: On ne peux pas traiter cette operation !"."<br/>"."<a href=\"javascript:history.back()\">retour a l'arrier</a>");
     }
 ?>
 
@@ -21,6 +30,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des Adhesions</title>
+    <style>
+        body{
+            font-family: Arial;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .overlay{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #00000067;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form{
+            background-color: white;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            border-radius: 15px;
+        }
+
+        input[type="submit"]{
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: rgb(48, 124, 237);;
+            color: white;
+            cursor: pointer;
+        }
+
+        fieldset{
+            margin: 15px;
+            border-radius: 7px;
+        }
+
+        fieldset legend{
+            font-weight: bolder;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <!--here for enterprise data only-->
@@ -29,16 +88,71 @@
             <legend>Les Information de l'Entreprise</legend>
             
             <?php
-                foreach($data as $row){
-                    echo "<span><b>Raison Sociale: </b><p>".$row['raison_social']."</p></span>";
-                    echo "<span><b>Gerant:</b><p>".$row['nom_prenom']."</p></span>";
-                    echo "<span><b>ICE: </b><p>".$row['ice']."</p></span>";
-                    echo "<span><b>RC: </b><p>".$row['rc']."</p></span>";
+
+                if (!empty($data)) {
+                    $enterprise = $data[0];
+
+                    echo "<span><b>Raison Sociale:</b><p> ".htmlspecialchars($enterprise['raison_social'])."</p></span>";
+                    echo "<span><b>Gerant:</b><p> ".htmlspecialchars($enterprise['nom_prenom'])."</p></span>";
+                    echo "<span><b>ICE:</b><p> ".htmlspecialchars($enterprise['ICE'])."</p></span>";
+                    echo "<span><b>RC:</b><p> ".htmlspecialchars($enterprise['RC'])."</p></span>";
                 }
             ?>
         </fieldset>
     </div>
 
     <!--here for adhesions data inshallah-->
+    <div class="enterprise_adhesions">
+        <fieldset>
+            <legend>Adhesions</legend>
+            <?php
+                $count = 0;
+                foreach($data as $row){
+                    if(empty($row['id_adhesion'])) continue;
+                    echo "<div style=\"display: flex; flex-direction: row; gap: 20px;\"><p>".htmlspecialchars($row["date_adhesion"])."-".htmlspecialchars($row["date_expiration"])."</p><p>".htmlspecialchars($row["statut"])."</p></div>";
+                    $count++;
+                }
+
+                if($count === 0) echo "Aucune Adhesion existe !";
+            ?>
+
+            <div class="btns">
+                <button style="margin-top: 20px;padding: 8px 10px;border:none;border-radius:5px;color:white;background-color:rgb(48, 124, 237);cursor:pointer;" onclick="toggleForm()">Ajouter Adhesion</button>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="overlay" id="overlay" style="display: none;">
+        <form action="?id=<?php echo $id; ?>" method="post">
+            <div class="field">
+                <label for="d_a">Date Adhesion : </label>
+                <input type="date" name="d_a" id="d_a" required>
+            </div>
+
+            <div class="field">
+                <label for="d_e">Date Expiration : </label>
+                <input type="date" name="d_e" id="d_e" required>
+            </div>
+
+            <div class="field">
+                <label for="statut">Statut : </label>
+                <input type="radio" name="statut" id="statut" value="active" checked> activee
+                <input type="radio" name="statut" id="statut" value="expire"> expiree
+            </div>
+            <input type="hidden" name="id" id="id" value="<?php echo $id; ?>">
+            <input type="submit" value="Ajouter" name="submit">
+        </form>
+    </div>
+
+    <script>
+        function toggleForm(){
+            const overlay = document.getElementById("overlay");
+            if(overlay.style.display === 'none'){
+                overlay.style.display = "flex";
+            }else{
+                overlay.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>

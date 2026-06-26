@@ -1,7 +1,7 @@
-<?php
-    global $conn ; 
+<?php 
     function getAdhesions($id_enterprise) {
-        $sql = "SELECT * FROM adhesion WHERE id_enterprise=?";
+        global $conn ;
+        $sql = "SELECT * FROM enterprise LEFT JOIN adhesion ON adhesion.id_enterprise=enterprise.id_enterprise WHERE enterprise.id_enterprise=?";
         $stmt = $conn->prepare($sql);
 
         if(!$stmt){
@@ -29,11 +29,13 @@
     }
 
     function addAdhesion($id_enterprise, $d_a, $d_e, $statut){
+        global $conn ;
+
         $sql = "INSERT INTO adhesion
-        (id_enterprise, date_adhesion, date_expiration, status)
+        (id_enterprise, date_adhesion, date_expiration, statut)
         VALUES ( ?, ?, ?, ?)";
         
-        $stmt = conn->prepare($sql);
+        $stmt = $conn->prepare($sql);
 
         if(!$stmt){
             die("Preparation de requet a echoue : " . $conn->error);
@@ -42,14 +44,8 @@
         $stmt->bind_param("isss", $id_enterprise, $d_a, $d_e, $statut);
 
         if ($stmt->execute()) {
-            echo "<div id=\"overlay\" style=\"position: absolute;width: 100%;height: 100%;z-index: 2;background-color: #0000002c;  display: flex;justify-content: center;display-direction:column; align-items:center;\">
-                <div style=\"width:300px;background-color: white; padding: 20px;border-radius: 20px; text-align: center; \">
-                    <p style=\"color: black;\">les donnes sont inseres correctement !<p>
-                    <div>
-                        <button style=\"background-color: red; color: white; padding: 15px 30px; border:none; border-radius: 7px; cursor: pointer;\" onclick=\"document.getElementById('overlay').style.display='none'\">fermer</button>
-                    </div>
-                </div>
-            </div>";
+
+            header("Location: adhesions.php?id=$id_enterprise");
         } else {
             echo "Erreur: " . $stmt->error;
         }
