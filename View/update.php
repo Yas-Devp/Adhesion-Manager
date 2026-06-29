@@ -50,7 +50,7 @@
     <title>Modification page</title>
 </head>
 <body>
-    <form method="post">
+    <form method="post" class="main_form">
         <h2>Modifier les donnees</h2>
         <div class="field_mc">
             <label for="forme_jurd">Forme Jurdique de l'enterprise : </label>

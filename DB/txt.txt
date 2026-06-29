@@ -188,4 +188,78 @@ TD: Travaux Divers (The official catch-all acronym for miscellaneous physical wo
 SD: Services Divers / Prestations Diverses (The official catch-all acronym for broad service provisions)
 
 
-Next task is to make independent Activities page linked to db:
+Next task is to make independent Activities page linked to db: DONE 0-0
+
+🟦 Page de garde
+
+École : École Supérieure de Technologie d’Agadir
+Filière : [Your field]
+Nom : [Your name]
+Entreprise : CCISM Agadir
+Période de stage : [Start date – End date]
+Projet : Gestion des adhésions (Membership Management Website)
+
+🟨 Remerciements
+
+Je tiens à remercier toute l’équipe de la Chambre de Commerce, d’Industrie et de Services de Souss-Massa (CCISM Agadir) pour leur accueil et leur encadrement durant mon stage.
+
+Je remercie également mon encadrant de stage pour son accompagnement, ses conseils et son soutien tout au long de cette expérience.
+
+Enfin, je remercie les enseignants de l’École Supérieure de Technologie d’Agadir pour leur formation et leur encadrement académique.
+
+🟩 Introduction
+
+Dans le cadre de ma première année à l’École Supérieure de Technologie d’Agadir, j’ai effectué un stage d’initiation au sein de la CCISM Agadir.
+
+Ce stage avait pour objectif de découvrir le monde professionnel et de mettre en pratique les connaissances acquises durant ma formation. J’ai également travaillé sur un projet intitulé “Gestion des adhésions (Membership Management Website)”, qui consiste à développer une plateforme web pour gérer les membres et leurs informations.
+
+🟦 Présentation de l’organisme d’accueil
+
+La Chambre de Commerce, d’Industrie et de Services de Souss-Massa (CCISM Agadir) est un organisme public qui accompagne les entreprises et les investisseurs de la région.
+
+Son rôle principal est de :
+
+Soutenir les entreprises locales
+Encourager le développement économique
+Faciliter les démarches administratives des professionnels
+Organiser des événements et formations pour les entrepreneurs
+🟨 Déroulement du stage
+
+Durant mon stage, j’ai été intégré dans un environnement professionnel où j’ai participé à un projet de développement d’un site web de gestion des adhésions.
+
+Ce projet consiste à créer une application permettant de :
+
+Gérer les informations des membres
+Faciliter l’inscription et le suivi des adhésions
+Organiser les données de manière structurée
+
+J’ai travaillé sous la supervision de mon encadrant, qui m’a guidé dans l’analyse du projet et la compréhension des besoins.
+
+🟩 Compétences acquises
+
+Ce stage m’a permis de développer plusieurs compétences importantes, notamment :
+
+La création de mon premier projet orienté vers le domaine économique et professionnel
+L’analyse et la compréhension d’un besoin réel d’entreprise
+La communication avec les membres de l’équipe
+Le respect des autres et le travail en équipe
+La discussion et l’analyse des idées avec mon encadrant
+Une première expérience dans le développement d’un projet informatique utile pour une organisation
+🟦 Conclusion
+
+Ce stage au sein de la CCISM Agadir a été une expérience très enrichissante. Il m’a permis de découvrir le fonctionnement d’une institution professionnelle et de participer à un projet concret.
+
+J’ai pu améliorer mes compétences techniques et humaines, ainsi que comprendre l’importance du travail en équipe et de la communication dans un environnement professionnel.
+
+Cette expérience a renforcé mon intérêt pour le développement de solutions informatiques adaptées aux besoins des entreprises.
+
+🟨 Annexes (optionnel)
+Cahier des charges du projet
+Captures d’écran du site web (si disponible)
+Attestation de stage
+
+If you want, I can also:
+
+make it more professional (EST top-grade version)
+or translate it to fully formal French academic style
+or help you add a technical section (HTML/CSS/JS, database, etc.) for higher marks

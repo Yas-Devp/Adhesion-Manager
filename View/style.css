@@ -114,7 +114,7 @@ body{
     width: 100%;
 }
 
-.act_form .btn_act{
+.act_form .btn_act , input[type="submit"]{
     width: 50%;
     padding: 5px 0px;
     margin-top: 20px;
@@ -127,6 +127,6 @@ body{
     cursor: pointer;
 }
 
-.act_form .btn_act:hover{
+.act_form .btn_act:hover,  input[type="submit"]:hover{
     background-color: rgb(32, 82, 155) ;
 }
