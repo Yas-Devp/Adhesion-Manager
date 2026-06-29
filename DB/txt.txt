@@ -186,3 +186,6 @@ CHRH: Cafés, Hôtels, Restaurants, et Hébergement (Hospitality sector macro-gr
 SSII: Société de Services en Ingénierie Informatique (IT & Software Dev companies)
 TD: Travaux Divers (The official catch-all acronym for miscellaneous physical works)
 SD: Services Divers / Prestations Diverses (The official catch-all acronym for broad service provisions)
+
+
+Next task is to make independent Activities page linked to db:

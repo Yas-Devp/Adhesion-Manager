@@ -145,6 +145,7 @@
     </div>
 
     <script>
+        
         function toggleForm(){
             const overlay = document.getElementById("overlay");
             if(overlay.style.display === 'none'){

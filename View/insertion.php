@@ -55,7 +55,7 @@
             </ul>
         </nav>
     </header>
-    <form method="post">
+    <form method="post" class="main_form">
         <h2>Formulaire d'insertion</h2>
         <div class="field_mc">
             <label for="forme_jurd">Forme Jurdique de l'enterprise : </label>
@@ -97,9 +97,17 @@
             <input type="email" name="email" id="email" placeholder="exemple123@gmail.com">
         </div>
 
+        <!-- OLD VERSION
         <div class="field">
             <label for="sect_act">Secteur d'activite : </label>
             <input type="text" name="sect_act" id="sect_act" placeholder="separes par ',' (exemple: BTP, AEP)" required>
+        </div>
+        -->
+
+        <input type="hidden" name="sect_act" value="" id="sect_act">
+        <div class="field">
+            <label for="sect_act">Secteur d'activite : </label>
+            <button type="button" onclick="toggleActForm()" style="width: 50%; margin-left: auto; margin-right: auto; cursor: pointer;">-Choisez ici-</button>
         </div>
 
         <div class="field">
@@ -128,6 +136,55 @@
         </div>
 
         <input type="submit" name="submit" id="submit" value="Inserer">
-    </form> 
+    </form>
+
+    <div class="overlay" id="overlay" style="display: none;"></div>
+    <form class="act_form" id="act_form" style="display: none;">
+        <div class="field">
+            <label for="act">Infrastructure & Industry : </label>
+            <input type="checkbox" name="act" value="ste"> STE
+            <input type="checkbox" name="act" value="btp"> BTP
+            <input type="checkbox" name="act" value="aep"> AEP
+            <input type="checkbox" name="act" value="vrd"> VRD
+        </div>
+
+        <div class="field">
+            <label for="act2">Commerce & Trade : </label>
+            <input type="checkbox" name="act"  value="imp_exp"> IMP/EXP
+            <input type="checkbox" name="act"  value="md_de_biens"> MD DE BIENS
+            <input type="checkbox" name="act" value="chrh"> CHRH
+        </div>
+
+        <div class="field">
+            <label for="act3">Services & Technology : </label>
+            <input type="checkbox" name="act"  value="ssii"> SSII
+            <input type="checkbox" name="act"  value="td"> TD
+            <input type="checkbox" name="act"  value="sd"> SD
+        </div>
+
+        <button type="button" onclick="addAcivities()" class="btn_act">Ajouter</button>
+    </form>
+
+    <script>
+        const act_form = document.getElementById('act_form');
+        const overlay = document.getElementById('overlay');
+        function toggleActForm(){
+            if(overlay.style.display === 'none'){
+                overlay.style.display = 'block';
+                act_form.style.display = 'flex';
+            }
+        }
+
+        let activities =[];
+        function addAcivities(){
+            const sect_act = document.getElementById("sect_act");
+            const checked = act_form.querySelectorAll('input[name="act"]:checked');
+            activities = Array.from(checked).map(cb => cb.value);
+            overlay.style.display = 'none';
+            act_form.style.display = 'none';
+            let field_value = activities.join(',');
+            sect_act.value = field_value;
+        }
+    </script>
 </body>
 </html>

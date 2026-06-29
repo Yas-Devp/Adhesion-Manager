@@ -1,4 +1,6 @@
 <?php
+    include_once('../DB/db_activites.php');
+
     function insererDB($f_j, $r_s, $n_p, $adr, $vll, $tel, $email, $s_a, $web, $capital, $eff, $d_c, $ice, $rc){
         global $conn;
         $f_j_allowed = ['PP', 'SARL', 'SNC', 'SA'];
@@ -35,7 +37,20 @@
             $rc
         );
 
+        $conn->begin_transaction();
+
         if ($stmt->execute()) {
+
+            $id = $conn->insert_id;
+
+            $success = addActivity($s_a, $id);
+
+            if (!$success) {
+                $conn->rollback();
+                die("Error inserting activities");
+            }
+
+            $conn->commit();
             echo "<div id=\"overlay\" style=\"position: absolute;width: 100%;height: 100%;z-index: 2;background-color: #0000002c;  display: flex;justify-content: center;display-direction:column; align-items:center;\">
                 <div style=\"width:300px;background-color: white; padding: 20px;border-radius: 20px; text-align: center; \">
                     <p style=\"color: black;\">les donnes sont inseres correctement !<p>
@@ -44,8 +59,10 @@
                     </div>
                 </div>
             </div>";
+
         } else {
-            echo "Erreur: " . $stmt->error;
+            $conn->rollback();
+            die("Erreur: " . $stmt->error);
         }
 
         $stmt->close();
