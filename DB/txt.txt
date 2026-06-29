@@ -258,8 +258,6 @@ Cahier des charges du projet
 Captures d’écran du site web (si disponible)
 Attestation de stage
 
-If you want, I can also:
 
-make it more professional (EST top-grade version)
-or translate it to fully formal French academic style
-or help you add a technical section (HTML/CSS/JS, database, etc.) for higher marks
+
+===== project src code lines are 1186 now :P ========
