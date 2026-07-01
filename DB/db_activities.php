@@ -52,4 +52,32 @@
 
         return ($counter === $size);
     }
+    function getActivities($id){
+        global $conn;
+
+        $sql = 'SELECT a.* FROM enterprise_activite ea JOIN activite a ON ea.id_activite=a.id_activite WHERE ea.id_enterprise=?';
+        $stmt = $conn->prepare($sql);
+        if(!$stmt){
+            die("Erreur lors de la preparation de sql");
+        }
+
+        $stmt->bind_param("i", $id);
+        
+        if($stmt->execute()){
+            $result = $stmt->get_result();
+            $data = [];
+
+            if ($result && $result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $data[] = $row;
+                }
+            }
+
+            return $data;
+        }else{
+            die("Erreur : " . $conn->error);
+        }
+
+        $stmt->close();
+    }
 ?>

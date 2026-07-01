@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="navBar.css">
     <style>
         body{
+            padding: 0;
+            margin: 0;
             font-family: Arial;
         }
         form{
@@ -78,6 +80,7 @@
 
         table {
             width: 90%;
+            max-width: 300px;
             margin: 30px auto;
             border-collapse: collapse;
             font-family: Arial, sans-serif;

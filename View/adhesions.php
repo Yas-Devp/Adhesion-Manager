@@ -3,9 +3,11 @@
     #note to myself: use session to get back the enterprise data from previous page 
     include_once("../DB/db_connection.php");
     include_once("../DB/db_adhesions.php");
+    include("../DB/db_activities.php");
 
 
     $data = array();
+    $activities = array();
     $id = NULL;
     if(isset($_POST['submit'])){
         $id = intval($_POST['id']);
@@ -18,6 +20,7 @@
     }else if(isset($_GET['id']) && !empty($_GET['id'])){
         $id = intval($_GET['id']);
         $data = getAdhesions($id);
+        $activities = getActivities($id);
     } else{
         die("Erreur: On ne peux pas traiter cette operation !"."<br/>"."<a href=\"javascript:history.back()\">retour a l'arrier</a>");
     }
@@ -118,6 +121,26 @@
 
             <div class="btns">
                 <button style="margin-top: 20px;padding: 8px 10px;border:none;border-radius:5px;color:white;background-color:rgb(48, 124, 237);cursor:pointer;" onclick="toggleForm()">Ajouter Adhesion</button>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="enterprise_adhesions">
+        <fieldset>
+            <legend>Activities</legend>
+            <?php
+                $count = 0;
+                foreach($activities as $row){
+                    if(empty($row['id_activite'])) continue;
+                    echo "<div style=\"display: flex; flex-direction: row; gap: 20px;\"><p>".htmlspecialchars($row["categorie"])." : ".htmlspecialchars($row["libelle"])."</p></div>";
+                    $count++;
+                }
+
+                if($count === 0) echo "Aucune Activite existe !";
+            ?>
+
+            <div class="btns">
+                <button style="margin-top: 20px;padding: 8px 10px;border:none;border-radius:5px;color:white;background-color:rgb(48, 124, 237);cursor:pointer;" onclick="toggleForm()">Ajouter Activite</button>
             </div>
         </fieldset>
     </div>
