@@ -112,7 +112,7 @@
                 $count = 0;
                 foreach($data as $row){
                     if(empty($row['id_adhesion'])) continue;
-                    echo "<div style=\"display: flex; flex-direction: row; gap: 20px;\"><p>".htmlspecialchars($row["date_adhesion"])."-".htmlspecialchars($row["date_expiration"])."</p><p>".htmlspecialchars($row["statut"])."</p></div>";
+                    echo "<div style=\"display: flex; flex-direction: row; gap: 20px;\"><p>".htmlspecialchars($row["date_adhesion"])."/".htmlspecialchars($row["date_expiration"])."</p><p>".htmlspecialchars($row["statut"])."</p></div>";
                     $count++;
                 }
 
@@ -128,19 +128,38 @@
     <div class="enterprise_adhesions">
         <fieldset>
             <legend>Activities</legend>
+
             <?php
                 $count = 0;
-                foreach($activities as $row){
-                    if(empty($row['id_activite'])) continue;
-                    echo "<div style=\"display: flex; flex-direction: row; gap: 20px;\"><p>".htmlspecialchars($row["categorie"])." : ".htmlspecialchars($row["libelle"])."</p></div>";
-                    $count++;
+
+                foreach ($activities as $category => $items) {
+
+                    if (empty($items)) continue;
+
+                    echo "<div style=\"display:flex; flex-direction:row; gap:20px; margin-bottom:10px;\">";
+                    echo "<p><strong>" . htmlspecialchars($category) . " :</strong> ";
+
+                    $labels = [];
+                    foreach ($items as $activity) {
+                        $labels[] = htmlspecialchars($activity['libelle']);
+                        $count++;
+                    }
+
+                    echo implode(", ", $labels);
+                    echo "</p></div>";
                 }
 
-                if($count === 0) echo "Aucune Activite existe !";
+                if ($count === 0) {
+                    echo "Aucune Activite existe !";
+                }
             ?>
 
             <div class="btns">
-                <button style="margin-top: 20px;padding: 8px 10px;border:none;border-radius:5px;color:white;background-color:rgb(48, 124, 237);cursor:pointer;" onclick="toggleForm()">Ajouter Activite</button>
+                <button
+                    style="margin-top:20px;padding:8px 10px;border:none;border-radius:5px;color:white;background-color:rgb(48,124,237);cursor:pointer;"
+                    onclick="toggleForm()">
+                    Ajouter Activite
+                </button>
             </div>
         </fieldset>
     </div>

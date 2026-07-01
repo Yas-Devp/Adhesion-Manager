@@ -1,5 +1,5 @@
 <?php
-    include_once('../DB/db_activites.php');
+    include_once('../DB/db_activities.php');
 
     function insererDB($f_j, $r_s, $n_p, $adr, $vll, $tel, $email, $s_a, $web, $capital, $eff, $d_c, $ice, $rc){
         global $conn;

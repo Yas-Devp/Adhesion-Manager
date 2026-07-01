@@ -66,18 +66,15 @@
         if($stmt->execute()){
             $result = $stmt->get_result();
             $data = [];
-
-            if ($result && $result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $data[] = $row;
-                }
+            while ($row = $result->fetch_assoc()) {
+                $data[$row['categorie']][] = $row;
             }
 
-            return $data;
         }else{
-            die("Erreur : " . $conn->error);
+            die("Erreur : " . $stmt->error);
         }
 
         $stmt->close();
+        return $data;
     }
 ?>
