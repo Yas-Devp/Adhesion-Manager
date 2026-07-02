@@ -96,7 +96,7 @@
                     $enterprise = $data[0];
 
                     echo "<span><b>Raison Sociale:</b><p> ".htmlspecialchars($enterprise['raison_social'])."</p></span>";
-                    echo "<span><b>Gerant:</b><p> ".htmlspecialchars($enterprise['nom_prenom'])."</p></span>";
+                    echo "<span><b>Gerant:</b><p> ".htmlspecialchars($enterprise['nom'])." ".htmlspecialchars($enterprise['prenom'])."</p></span>";
                     echo "<span><b>ICE:</b><p> ".htmlspecialchars($enterprise['ICE'])."</p></span>";
                     echo "<span><b>RC:</b><p> ".htmlspecialchars($enterprise['RC'])."</p></span>";
                 }
@@ -178,8 +178,9 @@
 
             <div class="field">
                 <label for="statut">Statut : </label>
-                <input type="radio" name="statut" id="statut" value="active" checked> activee
-                <input type="radio" name="statut" id="statut" value="expire"> expiree
+                <input type="radio" name="statut" id="statut1" value="active" checked> activee
+                <input type="radio" name="statut" id="statut2" value="expire"> expiree
+                <input type="radio" name="statut" id="statut3" value="expire"> suspendu
             </div>
             <input type="hidden" name="id" id="id" value="<?php echo $id; ?>">
             <input type="submit" value="Ajouter" name="submit">

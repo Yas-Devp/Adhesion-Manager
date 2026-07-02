@@ -5,7 +5,8 @@
     if(isset($_POST['submit'])){
         $f_j = $_POST['forme_jurdique'];
         $r_s = $_POST['rs'];
-        $n_p = $_POST['np'];
+        $n = $_POST['n'];
+        $p = $_POST['p'];
         $adr = $_POST['addr'];
         $vll = $_POST['ville'];
         $tel = $_POST['tel'];
@@ -20,7 +21,8 @@
 
         insererDB($f_j,
                   $r_s,
-                  $n_p,
+                  $n,
+                  $p,
                   $adr,
                   $vll,
                   $tel,
@@ -73,8 +75,13 @@
         </div>
 
         <div class="field">
-            <label for="nc">Nom et Prenom : </label>
-            <input type="text" name="np" id="np" required>
+            <label for="n">Nom : </label>
+            <input type="text" name="n" id="n" required>
+        </div>
+
+        <div class="field">
+            <label for="p">Prenom : </label>
+            <input type="text" name="p" id="p" required>
         </div>
 
         <div class="field">
@@ -117,12 +124,12 @@
 
         <div class="field">
             <label for="capital">Capital: </label>
-            <input type="number" name="capital" id="capital" value="0" step="1000" required>
+            <input type="number" name="capital" id="capital" value="0" step="1000" min='0' required>
         </div>
 
         <div class="field">
             <label for="effectif">Effectif: </label>
-            <input type="number" name="effectif" id="effectif" value="0" required>
+            <input type="number" name="effectif" id="effectif" value="0" min='0' required>
         </div>
 
         <div class="field">

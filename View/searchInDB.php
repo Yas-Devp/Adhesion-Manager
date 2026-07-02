@@ -152,7 +152,7 @@
     <form method="post" class="search">
         <div class="searchbar">
             <div class="sb_container">
-                <input type="text" id="searchbar" name="sb" placeholder="search by (raison social, ice, nom et prenom)">
+                <input type="text" id="searchbar" name="sb" placeholder="search by (raison social, ice, nom et prenom)" required>
                 <input type="submit" name="search" value="🔎" class='search_btn'>
             </div>
 
@@ -187,12 +187,12 @@
 
                         foreach($data as $row){
                             echo "<tr>";
-                            echo "<td>".$row['id_enterprise']."</td>";
-                            echo "<td>".$row['raison_social']."</td>";
-                            echo "<td>".$row['nom']." ".$row['prenom']."</td>";
-                            echo "<td>".$row['telephone']."</td>";
-                            echo "<td>".$row['email']."</td>";
-                            echo "<td>".$row['forme_jurdique']."</td>";
+                            echo "<td>".htmlspecialchars($row['id_enterprise'])."</td>";
+                            echo "<td>".htmlspecialchars($row['raison_social'])."</td>";
+                            echo "<td>".htmlspecialchars($row['nom'])." ".htmlspecialchars($row['prenom'])."</td>";
+                            echo "<td>".htmlspecialchars($row['telephone'])."</td>";
+                            echo "<td>".htmlspecialchars($row['email'])."</td>";
+                            echo "<td>".htmlspecialchars($row['forme_jurdique'])."</td>";
                             echo "</tr>";
                         }
                     }
