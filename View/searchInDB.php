@@ -159,9 +159,10 @@
             <div class="options_search" id="options">
                 <label for="type" style="margin: 0 auto;">type de recherche : </label>
                 <div class="choices">
-                    <input type="radio" name="type" id="type" value="r_s" checked> raison sociale
-                    <input type="radio" name="type" id="type" value="ice"> ice
-                    <input type="radio" name="type" id="type" value="np"> nom et prenom
+                    <input type="radio" name="type" id="type_rs" value="r_s" checked> raison sociale
+                    <input type="radio" name="type" id="type_ice" value="ice"> ice
+                    <input type="radio" name="type" id="type_n" value="n"> nom
+                    <input type="radio" name="type" id="type_p" value="p"> prenom
                 </div>
             </div>
         </div>
@@ -188,7 +189,7 @@
                             echo "<tr>";
                             echo "<td>".$row['id_enterprise']."</td>";
                             echo "<td>".$row['raison_social']."</td>";
-                            echo "<td>".$row['nom_prenom']."</td>";
+                            echo "<td>".$row['nom']." ".$row['prenom']."</td>";
                             echo "<td>".$row['telephone']."</td>";
                             echo "<td>".$row['email']."</td>";
                             echo "<td>".$row['forme_jurdique']."</td>";

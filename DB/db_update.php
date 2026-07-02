@@ -1,5 +1,5 @@
 <?php
-    function updateDB($id, $f_j, $r_s, $n_p, $tel, $email) {
+    function updateDB($id, $f_j, $r_s, $n , $p, $tel, $email) {
         global $conn;
 
         $f_j_allowed = ['PP', 'SARL', 'SA', 'SNC'];
@@ -19,10 +19,15 @@
             $types .= "s";
             $params[] = $r_s;
         }
-        if (!empty($n_p)) {
-            $fields[] = "nom_prenom = ?";
+        if (!empty($n)) {
+            $fields[] = "nom = ?";
             $types .= "s";
-            $params[] = $n_p;
+            $params[] = $n;
+        }
+        if (!empty($p)) {
+            $fields[] = "prenom = ?";
+            $types .= "s";
+            $params[] = $p;
         }
         if (!empty($tel)) {
             $fields[] = "telephone = ?";

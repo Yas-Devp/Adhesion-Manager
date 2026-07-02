@@ -23,11 +23,12 @@
     if (isset($_POST['submit'])) {
         $f_j   = $_POST['forme_jurdique'] ?? '';
         $r_s   = $_POST['rs'] ?? '';
-        $n_p   = $_POST['np'] ?? '';
+        $n = $_POST['n'] ?? '';
+        $p = $_POST['p'] ?? '';
         $tel   = $_POST['tel'] ?? '';
         $email = $_POST['email'] ?? '';
 
-        $success = updateDB($id, $f_j, $r_s, $n_p, $tel, $email);
+        $success = updateDB($id, $f_j, $r_s, $n, $p, $tel, $email);
 
         if ($success) {
             unset($_SESSION['id']);
@@ -68,8 +69,13 @@
         </div>
 
         <div class="field">
-            <label for="nc">Nom et Prenom : </label>
-            <input type="text" name="np" id="np">
+            <label for="n">Nom : </label>
+            <input type="text" name="n" id="n">
+        </div>
+
+        <div class="field">
+            <label for="p">Prenom : </label>
+            <input type="text" name="p" id="p">
         </div>
 
         <div class="field">
