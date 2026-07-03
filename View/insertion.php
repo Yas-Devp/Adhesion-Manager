@@ -147,6 +147,7 @@
 
     <div class="overlay" id="overlay" style="display: none;"></div>
     <form class="act_form" id="act_form" style="display: none;">
+        <span id="close_act_form" style="padding:2px;position:absolute; top: 7px; right:7px; color: white; background-color: red; border-radius: 50%;cursor: pointer;">❌</span>
         <div class="field">
             <label for="act">Infrastructure & Industry : </label>
             <input type="checkbox" name="act" value="ste"> STE
@@ -192,6 +193,11 @@
             let field_value = activities.join(',');
             sect_act.value = field_value;
         }
+
+        document.getElementById("close_act_form").addEventListener("click", ()=>{
+            act_form.style.display = "none";
+            overlay.style.display = "none";
+        });
     </script>
 </body>
 </html>

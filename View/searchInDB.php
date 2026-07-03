@@ -64,7 +64,7 @@
         }
 
         #options{
-            height: 0px;
+            height: 50px;
         }
         .options_search{
             height: 0px;
@@ -145,7 +145,7 @@
         <nav>
             <ul>
                 <li><a href="insertion.php">Inserer</a></li>
-                <li><a href="searchInDB.php">chercher</a></li>
+                <li><a href="searchInDB.php">Chercher</a></li>
             </ul>
         </nav>
     </header>
@@ -166,7 +166,7 @@
                 </div>
             </div>
         </div>
-        <span onclick="toggleBar()" id="toggle_btn" style="transition: 0.4s">⮟</span>
+        <span onclick="toggleBar()" id="toggle_btn" style="transition: 0.4s; transform: rotate(180deg);">⮟</span>
     </form>
 
     <div class="search_results">
@@ -201,6 +201,8 @@
     </div>
 
     <script>
+
+        //show the options layout
         function toggleBar(){
             const options = document.getElementById("options");
             const toggle_btn = document.getElementById("toggle_btn");
@@ -211,10 +213,10 @@
                 options.style.height = "0px";
                 toggle_btn.style.transform = "rotate(0deg)";
             }
-            
         }
 
-
+        
+        //my code to create new table rows those contain some opeartions buttons
         const rows = document.querySelectorAll("table tbody tr");
         rows.forEach((row, index) => {
             row.addEventListener("click", function () {
@@ -232,11 +234,12 @@
                 td.colSpan = this.children.length;
                 td.style.textAlign = "center";
 
-                let firstTdText = row.querySelector("td").textContent;
+                let id = row.querySelector("td").textContent;
+                //operations buttons
                 td.innerHTML = `
-                    <a href="adhesions.php?id=${firstTdText}" class="btn adhesions">Adhesions</a>
-                    <a href="update.php?id=${firstTdText}" class="btn edit">Modifier</a>
-                    <a href="delete.php?id=${firstTdText}" class="btn delete">Supprimer</a>
+                    <a href="adhesions.php?id=${id}" class="btn adhesions">Adhesions</a>
+                    <a href="update.php?id=${id}" class="btn edit">Modifier</a>
+                    <a href="delete.php?id=${id}" class="btn delete">Supprimer</a>
                 `;
 
                 opsRow.appendChild(td);

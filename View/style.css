@@ -9,9 +9,11 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 50px;
 }
 
 .main_form{
+    margin-top: 50px;
     width: 500px;
     min-height: fit-content;
     background-color: white;
@@ -88,7 +90,9 @@ body{
 }
 
 .overlay {
-    position: fixed;
+    top: 0;
+    left: 0;
+    position: absolute;
     background: rgba(0,0,0,.5);
     z-index: 2;
     width: 100%;

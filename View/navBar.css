@@ -1,7 +1,7 @@
 header{
     position: absolute;
     top: 0;
-    background-color: #00000067;
+    background-color: rgb(91, 137, 222);
     width: 100%;
 }
 
@@ -27,6 +27,8 @@ header nav ul li{
     background-color: rgb(48, 124, 237);
     border-radius: 5px;
     padding: 5px;
+    border: 1px solid white;
+    transition: 0.3s ease-out;
 }
 
 header nav ul li a{
@@ -34,9 +36,10 @@ header nav ul li a{
     color: white;
 }
 
+
 header nav ul li:hover{
     font-size: large;
     cursor: pointer;
     text-decoration: underline;
-    background-color: rgb(32, 82, 155);
+    color: white;
 }

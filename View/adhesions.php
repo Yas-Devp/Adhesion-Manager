@@ -165,7 +165,9 @@
     </div>
 
     <div class="overlay" id="overlay" style="display: none;">
-        <form action="?id=<?php echo $id; ?>" method="post">
+        
+        <form action="?id=<?php echo $id; ?>" method="post" style="position: relative;">
+            <span id="close_btn" style="padding:2px;position:absolute; top: 10px; right:10px; color: white; background-color: red; border-radius: 50%;cursor: pointer;">❌</span>
             <div class="field">
                 <label for="d_a">Date Adhesion : </label>
                 <input type="date" name="d_a" id="d_a" required>
@@ -188,15 +190,19 @@
     </div>
 
     <script>
-        
+        const overlay = document.getElementById("overlay");
         function toggleForm(){
-            const overlay = document.getElementById("overlay");
+            
             if(overlay.style.display === 'none'){
                 overlay.style.display = "flex";
             }else{
                 overlay.style.display = "none";
             }
         }
+
+        document.getElementById("close_btn").addEventListener("click", ()=>{
+            overlay.style.display = "none";
+        });
     </script>
 </body>
 </html>
