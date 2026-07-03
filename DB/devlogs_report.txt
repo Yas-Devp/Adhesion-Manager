@@ -79,3 +79,10 @@ Cela prouve que tu n'as pas juste copié-collé du code,
  Approche finale (Optimisée) : Migration vers une relation 1,n 
  avec table dédiée.
   Résultat : Conservation de l'historique et automatisation complète des statuts.
+
+
+Day 15 : Working on Excel databse about "nomenclature des activites" (very very hard task)
+skills needed : 
+able to convert pdf data to Excel
+able to use excel to correct wrong data or adding missing ones 
+being patient to handle hundred of activities :)

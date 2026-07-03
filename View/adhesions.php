@@ -112,7 +112,7 @@
                 $count = 0;
                 foreach($data as $row){
                     if(empty($row['id_adhesion'])) continue;
-                    echo "<div style=\"display: flex; flex-direction: row; gap: 20px;\"><p>".htmlspecialchars($row["date_adhesion"])."/".htmlspecialchars($row["date_expiration"])."</p><p>".htmlspecialchars($row["statut"])."</p></div>";
+                    echo "<div style=\"display: flex; flex-direction: row; gap: 20px;align-items: center;\"><p>".htmlspecialchars($row["date_adhesion"])."<b style=\"font-size: 20px;\"> / </b>".htmlspecialchars($row["date_expiration"])."</p><p>".htmlspecialchars($row["statut"])."</p><div style=\"margin-left: auto;cursor:pointer;\"><span style=\"color: red\">Delete</span>  <span style=\"color: green;\">Changer</span></div></div>";
                     $count++;
                 }
 
@@ -179,6 +179,11 @@
             </div>
 
             <div class="field">
+                <label for="d_e">Montant : </label>
+                <input type="number" name="montant" id="montant" required>
+            </div>
+
+            <div class="field">
                 <label for="statut">Statut : </label>
                 <input type="radio" name="statut" id="statut1" value="active" checked> activee
                 <input type="radio" name="statut" id="statut2" value="expire"> expiree
@@ -202,6 +207,26 @@
 
         document.getElementById("close_btn").addEventListener("click", ()=>{
             overlay.style.display = "none";
+        });
+
+        const startDateInput = document.getElementById('d_a');
+        const endDateInput = document.getElementById('d_e');
+
+        startDateInput.addEventListener('change', function() {
+            const selectedDateStr = this.value;
+            
+            if (selectedDateStr) {
+                const date = new Date(selectedDateStr);
+                date.setFullYear(date.getFullYear() + 1);
+
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                const targetDateStr = `${year}-${month}-${day}`;
+                
+                endDateInput.value = targetDateStr;
+                endDateInput.min = targetDateStr;
+            }
         });
     </script>
 </body>

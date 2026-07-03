@@ -104,7 +104,7 @@
             <input type="email" name="email" id="email" placeholder="exemple123@gmail.com">
         </div>
 
-        <!-- OLD VERSION
+        <!-- OLD VERSION - related to DB
         <div class="field">
             <label for="sect_act">Secteur d'activite : </label>
             <input type="text" name="sect_act" id="sect_act" placeholder="separes par ',' (exemple: BTP, AEP)" required>
@@ -184,6 +184,7 @@
         }
 
         let activities =[];
+        //function to create secture activity field , so I need it to keep old DB structure
         function addAcivities(){
             const sect_act = document.getElementById("sect_act");
             const checked = act_form.querySelectorAll('input[name="act"]:checked');
