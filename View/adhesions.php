@@ -212,6 +212,7 @@
         const startDateInput = document.getElementById('d_a');
         const endDateInput = document.getElementById('d_e');
 
+        //calculating the expiration day automatically(just adding one year of memberships)
         startDateInput.addEventListener('change', function() {
             const selectedDateStr = this.value;
             

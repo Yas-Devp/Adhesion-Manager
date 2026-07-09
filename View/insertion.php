@@ -1,8 +1,11 @@
 <?php
     include_once("../DB/db_connection.php");
     include_once("../DB/db_insertion.php");
+    require_once '../DB/db_activities.php';
+    $activities_hierarchy = getAllNewActivitiesGrouped();
 
     if(isset($_POST['submit'])){
+
         $f_j = $_POST['forme_jurdique'];
         $r_s = $_POST['rs'];
         $n = $_POST['n'];
@@ -112,6 +115,7 @@
         -->
 
         <input type="hidden" name="sect_act" value="" id="sect_act">
+
         <div class="field">
             <label for="sect_act">Secteur d'activite : </label>
             <button type="button" onclick="toggleActForm()" style="width: 50%; margin-left: auto; margin-right: auto; cursor: pointer;">-Choisez ici-</button>
@@ -145,6 +149,7 @@
         <input type="submit" name="submit" id="submit" value="Inserer">
     </form>
 
+    
     <div class="overlay" id="overlay" style="display: none;"></div>
     <form class="act_form" id="act_form" style="display: none;">
         <span id="close_act_form" style="padding:2px;position:absolute; top: 7px; right:7px; color: white; background-color: red; border-radius: 50%;cursor: pointer;">❌</span>
@@ -174,6 +179,7 @@
     </form>
 
     <script>
+        
         const act_form = document.getElementById('act_form');
         const overlay = document.getElementById('overlay');
         function toggleActForm(){
@@ -199,6 +205,7 @@
             act_form.style.display = "none";
             overlay.style.display = "none";
         });
+
     </script>
 </body>
 </html>

@@ -86,3 +86,6 @@ skills needed :
 able to convert pdf data to Excel
 able to use excel to correct wrong data or adding missing ones 
 being patient to handle hundred of activities :)
+
+Day 16 :
+next task is to make activity system work professionally
