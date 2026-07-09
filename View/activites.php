@@ -1,7 +1,17 @@
 <?php
     require_once '../DB/db_connection.php';
     require_once '../DB/db_activities.php';
+
+    if(!isset($_GET['id']) || empty($_GET['id'])){
+        header("Location: insertion.php");
+        exit();
+    }
+    $id = $_GET['id'];
+    if(isset($_POST['submit'])){
+
+    }
     $activities_hierarchy = getAllNewActivitiesGrouped();
+
 ?>
 
 <!DOCTYPE html>
@@ -97,6 +107,7 @@
         >
             <option value="">-- Choisir activité(s) --</option>
         </select>
+        <small>/!\ ctrl + click droit pour choisir multiple ativites</small>
     </div>
 
     <div class="selected_acts">

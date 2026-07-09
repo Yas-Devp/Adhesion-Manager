@@ -52,7 +52,7 @@
             }
 
             $conn->commit();
-            echo "<div id=\"overlay\" style=\"position: absolute;width: 100%;height: 100%;z-index: 2;background-color: #0000002c;  display: flex;justify-content: center;display-direction:column; align-items:center;\">
+            /*echo "<div id=\"overlay\" style=\"position: absolute;width: 100%;height: 100%;z-index: 2;background-color: #0000002c;  display: flex;justify-content: center;display-direction:column; align-items:center;\">
                 <div style=\"width:300px;background-color: white; padding: 20px;border-radius: 20px; text-align: center; \">
                     <p style=\"color: black;\">les donnes sont inseres correctement !<p>
                     <div>
@@ -60,7 +60,9 @@
                     </div>
                 </div>
             </div>";
+            */
 
+            header("Location: activites.php?id=$id");
         } else {
             $conn->rollback();
             die("Erreur: " . $stmt->error);
