@@ -83,7 +83,7 @@
     function addActivity_new($activity_string, $enterprise_id, $new_activities = []) {
         global $conn;
         
-        //update old system (keep it working)
+        //update old system (I must remove it 0-0)
         if (!empty($activity_string)) {
             $sql = "UPDATE gestion_adhesion_entreprise SET secteur_activite = ? WHERE id_entreprise = ?";
             $stmt = $conn->prepare($sql);
@@ -92,7 +92,7 @@
             $stmt->close();
         }
         
-        //update old activity system (gestion_adhesion_entreprise_activite)
+        //update old activity system (gestion_adhesion_entreprise_activite , wt is that , AI is kidding me)
         if (!empty($activity_string)) {
             // Clear old activities
             $sql = "DELETE FROM gestion_adhesion_entreprise_activite WHERE id_entreprise = ?";
@@ -116,7 +116,7 @@
             }
         }
         
-        //add new hierarchical activity system
+        //add new hierarchical activity system , logic but bad , everything here need human integration (-_-)
         if (!empty($new_activities)) {
             // Clear existing new activities
             $sql = "DELETE FROM gestion_adhesion_entreprise_activites_new WHERE id_entreprise = ?";
