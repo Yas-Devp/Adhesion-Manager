@@ -2,16 +2,21 @@
     require_once '../DB/db_connection.php';
     require_once '../DB/db_activities.php';
 
-    if(!isset($_GET['id']) || empty($_GET['id'])){
+
+    $id = '';
+    if((!isset($_GET['id']) || empty($_GET['id'])) && empty($id)){
         header("Location: insertion.php");
         exit();
     }
     $id = $_GET['id'];
-    if(isset($_POST['submit'])){
-
+    if(isset($_POST['submit']) && !empty($_POST["activities"])){
+        $acts = $_POST["activities"];
+        $new_activities = explode(",", $acts);
+        addActivity_new($id, $new_activities);
     }
     $activities_hierarchy = getAllNewActivitiesGrouped();
-
+    $presaved_activities = getSavedActivities($id);
+    //print_r($presaved_activities);
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +29,9 @@
     <style>
         body{
             font-family: Arial;
+            display: flex;
+            flex-direction : column ;
+            align-items : center;
         }
         @media (max-width: 600px){
             .main_form{
@@ -68,6 +76,21 @@
         .activity-selection select[multiple]{
             height:180px;
         }
+
+        form{
+            display: flex;
+            justify-content: center;
+        }
+
+        form input[type="submit"]{
+            padding: 8px;
+            font-weight: bolder;
+            color: white;
+            background-color : rgb(48, 124, 237);
+            border : none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -107,18 +130,28 @@
         >
             <option value="">-- Choisir activité(s) --</option>
         </select>
-        <small>/!\ ctrl + click droit pour choisir multiple ativites</small>
+        <!--small>/!\ ctrl + click droit pour choisir multiple ativites</small-->
+        
+        <form method="post">
+            <input type="hidden" name="activities" id="activities_codes">
+            <input type="submit" name="submit" value="Enrigestrer">
+        </form>
     </div>
 
     <div class="selected_acts">
-        <h3>Selected Activities : </h3>
+        <h3>Les Activities de L'entreprise : </h3>
         <div class="acts_cont" id="container">
 
         </div>
     </div>
 
     <script>
-        let selectedActivities = [];
+        const rawData = <?= json_encode($presaved_activities, JSON_UNESCAPED_UNICODE); ?>;
+        let selectedActivities = rawData.map(item => ({
+            code: String(item.activite_code),
+            text: item.activite_code + " - " + item.description
+        }));
+        displaySelectedActivities();
         const hierarchy = <?= json_encode($activities_hierarchy); ?>;
         
         const sectionSelect = document.getElementById("section_select");
@@ -225,9 +258,9 @@
             );
 
 
-            console.log(selectedActivities);
+            //console.log(selectedActivities);
             displaySelectedActivities();
-
+            
         });
 
         function displaySelectedActivities(){
@@ -250,6 +283,10 @@
                 container.appendChild(div);
 
             });
+
+            const acts_codes = document.getElementById('activities_codes');
+            acts_codes.value = selectedActivities.map(item => item.code).join(",");
+            console.log(acts_codes.value);
 
         }
 

@@ -237,7 +237,7 @@
                 let id = row.querySelector("td").textContent;
                 //operations buttons
                 td.innerHTML = `
-                    <a href="adhesions.php?id=${id}" class="btn adhesions">Adhesions</a>
+                    <a href="adhesions.php?id=${id}" class="btn adhesions">Adhesions/Activites</a>
                     <a href="update.php?id=${id}" class="btn edit">Modifier</a>
                     <a href="delete.php?id=${id}" class="btn delete">Supprimer</a>
                 `;

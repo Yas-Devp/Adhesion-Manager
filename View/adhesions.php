@@ -155,11 +155,11 @@
             ?>
 
             <div class="btns">
-                <button
-                    style="margin-top:20px;padding:8px 10px;border:none;border-radius:5px;color:white;background-color:rgb(48,124,237);cursor:pointer;"
-                    onclick="toggleForm()">
+                <a
+                    style="margin-top:20px;padding:8px 10px;border:none;border-radius:5px;color:white;background-color:rgb(48,124,237);cursor:pointer; text-decoration: none;font-size: 14px;"
+                    href="activites.php?id=<?= $id ?>">
                     Ajouter Activite
-                </button>
+                </a>
             </div>
         </fieldset>
     </div>

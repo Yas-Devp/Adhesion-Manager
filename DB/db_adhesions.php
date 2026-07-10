@@ -53,4 +53,6 @@
         $stmt->close();
 
     }
+
+    function deleteAdhesion($id_adhesion){}
 ?>
