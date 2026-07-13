@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page de Recherche</title>
-    <link rel="stylesheet" href="navBar.css">
+    <link rel="stylesheet" href="./css/navBar.css">
     <style>
         body{
             padding: 0;
@@ -141,14 +141,7 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="insertion.php">Inserer</a></li>
-                <li><a href="searchInDB.php">Chercher</a></li>
-            </ul>
-        </nav>
-    </header>
+    <?php include('./layout/navBar.php'); ?>
     <form method="post" class="search">
         <div class="searchbar">
             <div class="sb_container">

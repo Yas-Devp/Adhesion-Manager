@@ -25,6 +25,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Activites : </title>
+    <link rel="stylesheet" href="./css/navBar.css">
 
     <style>
         body{
@@ -32,6 +33,7 @@
             display: flex;
             flex-direction : column ;
             align-items : center;
+            padding-top: 50px;
         }
         @media (max-width: 600px){
             .main_form{
@@ -94,6 +96,8 @@
     </style>
 </head>
 <body>
+    <?php include('./layout/navBar.php'); ?>
+    
     <div class="activity-selection">
 
         <label>Section :</label>
