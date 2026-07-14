@@ -1,16 +1,16 @@
-header{
+.nav{
     position: fixed;
     top: 0;
     background-color: rgb(91, 137, 222);
     width: 100%;
 }
 
-head nav{
+.nav nav{
     margin: 0 auto;
     width: fit-content;
 }
 
-header nav ul{
+.nav nav ul{
     width: fit-content;
     display: flex;
     flex-direction: row;
@@ -21,7 +21,7 @@ header nav ul{
     height: 50px;
 }
 
-header nav ul li{
+.nav nav ul li{
     font-weight: bold;
     transition: 0.2s ease-in;
     background-color: rgb(48, 124, 237);
@@ -31,13 +31,13 @@ header nav ul li{
     transition: 0.3s ease-out;
 }
 
-header nav ul li a{
+.nav nav ul li a{
     text-decoration: none;
     color: white;
 }
 
 
-header nav ul li:hover{
+.nav nav ul li:hover{
     font-size: large;
     cursor: pointer;
     text-decoration: underline;

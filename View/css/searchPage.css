@@ -125,3 +125,10 @@ td {
 .adhesions{
     background :#2f80ed;
 }
+
+@media (max-width: 400px){
+    form{
+        padding: 7px;
+        width: 100%;
+    }
+}

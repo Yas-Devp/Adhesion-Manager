@@ -1,0 +1,35 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+body { background-color: #f4f6f9; color: #333; padding: 0; padding-top:50px; }
+.dashboard-container { max-width: 1400px; margin: 0 30px; }
+
+header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+h1 { color: #1e293b; font-size: 28px; }
+.btn-primary { background-color: #107c41; color: white; padding: 12px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px; transition: background 0.2s; }
+.btn-primary:hover { background-color: #0b582d; }
+
+.stats-grid { display: flex; gap: 20px; margin-bottom: 30px; }
+.stat-card { flex: 1; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); display: flex; flex-direction: column; border-left: 5px solid #107c41; }
+.stat-card.blue { border-left-color: #2563eb; }
+.stat-title { font-size: 14px; color: #64748b; font-weight: 600; text-transform: uppercase; margin-bottom: 8px; }
+.stat-value { font-size: 32px; font-weight: 700; color: #1e293b; }
+
+.charts-grid { display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 30px; }
+.chart-box { flex: 1; min-width: 450px; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+.chart-box h3 { font-size: 18px; color: #1e293b; margin-bottom: 20px; text-align: center; }
+
+.table-box { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); margin-top: 20px; }
+.table-box h3 { font-size: 18px; color: #1e293b; margin-bottom: 20px; }
+table { width: 100%; border-collapse: collapse; text-align: left; }
+th { background-color: #f8fafc; color: #64748b; font-weight: 600; padding: 12px 15px; border-bottom: 2px solid #e2e8f0; font-size: 14px; }
+td { padding: 12px 15px; border-bottom: 1px solid #e2e8f0; font-size: 14px; color: #334155; }
+tr:hover { background-color: #f8fafc; }
+
+.actions-cell { display: flex; gap: 10px; }
+.btn-action { text-decoration: none; font-size: 13px; font-weight: 600; padding: 5px 10px; border-radius: 4px; }
+.btn-edit { color: #2563eb; background: #eff6ff; }
+.btn-edit:hover { background: #dbeafe; }
+.btn-delete { color: #dc2626; background: #fef2f2; }
+.btn-delete:hover { background: #fee2e2; }
+@media (min-width: 1400px){
+    .dashboard-container { margin: 0 auto; }
+}
