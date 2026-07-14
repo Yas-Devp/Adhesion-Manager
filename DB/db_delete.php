@@ -6,6 +6,7 @@
         //I will need to delete activities too if I added them to DB
         //why : bcz they are using id_enterprise as foreign key
         //0-0
+        //I fix the problem using CASCADE for adhesion table
         $sql = "DELETE FROM enterprise WHERE id_enterprise=?";
         $stmt = $conn->prepare($sql);
         

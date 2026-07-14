@@ -26,74 +26,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Activites : </title>
     <link rel="stylesheet" href="./css/navBar.css">
-
-    <style>
-        body{
-            font-family: Arial;
-            display: flex;
-            flex-direction : column ;
-            align-items : center;
-            padding-top: 50px;
-        }
-        @media (max-width: 600px){
-            .main_form{
-                width:90%;
-            }
-
-            .activity-selection{
-                width:85%;
-            }
-
-            .main_form .field{
-                width:85%;
-                flex-direction:column;
-            }
-
-            .main_form .field input{
-                width:100%;
-                margin-left:0;
-            }
-        }
-
-
-        .activity-selection{
-            width:80%;
-            display:flex;
-            flex-direction:column;
-            gap:10px;
-            margin-top:20px;
-        }
-
-
-        .activity-selection select{
-            width:100%;
-            padding:8px;
-            border:none;
-            border-radius:5px;
-            background:#d7d6d6;
-            font-size:14px;
-        }
-
-
-        .activity-selection select[multiple]{
-            height:180px;
-        }
-
-        form{
-            display: flex;
-            justify-content: center;
-        }
-
-        form input[type="submit"]{
-            padding: 8px;
-            font-weight: bolder;
-            color: white;
-            background-color : rgb(48, 124, 237);
-            border : none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/activitiesPage.css">
 </head>
 <body>
     <?php include('./layout/navBar.php'); ?>

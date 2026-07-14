@@ -67,57 +67,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liste des Adhesions</title>
     <link rel="stylesheet" href="./css/navBar.css">
-    <style>
-        body{
-            font-family: Arial;
-            width: 100%;
-            padding: 0;
-            margin: 0;
-            padding-top: 50px;
-        }
-
-        .overlay{
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: #00000067;
-            z-index: 2;
-            top: 0;
-            left: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        form{
-            background-color: white;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            border-radius: 15px;
-        }
-
-        input[type="submit"]{
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: rgb(48, 124, 237);;
-            color: white;
-            cursor: pointer;
-        }
-
-        fieldset{
-            margin: 15px;
-            border-radius: 7px;
-        }
-
-        fieldset legend{
-            font-weight: bolder;
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/adhesionPage.css">
 </head>
 <body>
     <?php include('./layout/navBar.php'); ?>
@@ -179,7 +129,7 @@
                 }
 
                 if ($count === 0) {
-                    echo "Aucune Activite existe !";
+                    echo "<p>Aucune Activite existe !</p>";
                 }
 
             ?>
@@ -194,10 +144,9 @@
         </fieldset>
     </div>
 
-        <!-- Fenêtre Modale (Formulaire d'ajout / modification) -->
     <div class="overlay" id="overlay" style="display: <?= $is_edit ? 'flex' : 'none'; ?>;">
         <form action="adhesions.php?id=<?= $id; ?>" method="post" style="position: relative;">
-            <!-- Si on annule la modification, on recharge la page sans les paramètres de modification -->
+            
             <span id="close_btn" style="padding:5px; position:absolute; top: 10px; right:10px; color: white; background-color: red; border-radius: 50%; cursor: pointer; font-size: 12px; line-height: 10px;">✕</span>
             
             <h3 style="margin-top: 0; text-align: center;">
@@ -233,7 +182,6 @@
                 </div>
             </div>
             
-            <!-- Identifiants cachés pour la soumission -->
             <input type="hidden" name="id" value="<?= $id; ?>">
             <?php if ($is_edit): ?>
                 <input type="hidden" name="a_id" value="<?= $edit_adhesion['id_adhesion']; ?>">
