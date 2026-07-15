@@ -14,7 +14,7 @@
         $vll = $_POST['ville'];
         $tel = $_POST['tel'];
         $email = $_POST['email'];
-        $s_a = $_POST['sect_act'];
+        //$s_a = $_POST['sect_act'];
         $web = $_POST['web'];
         $capital = $_POST['capital'];
         $eff = $_POST['effectif'];
@@ -30,7 +30,7 @@
                   $vll,
                   $tel,
                   $email,
-                  $s_a,
+                  //$s_a,
                   $web,
                   $capital,
                   $eff,
@@ -107,12 +107,14 @@
         </div>
         -->
 
+        <!--
         <input type="hidden" name="sect_act" value="" id="sect_act">
 
         <div class="field">
             <label for="sect_act">Secteur d'activite : </label>
             <button type="button" onclick="toggleActForm()" style="width: 50%; margin-left: auto; margin-right: auto; cursor: pointer;">-Choisez ici-</button>
         </div>
+        -->
 
         <div class="field">
             <label for="web">Site Web: </label>
@@ -142,7 +144,7 @@
         <input type="submit" name="submit" id="submit" value="Inserer">
     </form>
 
-    
+    <!--
     <div class="overlay" id="overlay" style="display: none;"></div>
     <form class="act_form" id="act_form" style="display: none;">
         <span id="close_act_form" style="padding:2px;position:absolute; top: 7px; right:7px; color: white; background-color: red; border-radius: 50%;cursor: pointer;">❌</span>
@@ -170,9 +172,10 @@
 
         <button type="button" onclick="addAcivities()" class="btn_act">Ajouter</button>
     </form>
+    -->
 
     <script>
-        
+        /*
         const act_form = document.getElementById('act_form');
         const overlay = document.getElementById('overlay');
         function toggleActForm(){
@@ -198,6 +201,7 @@
             act_form.style.display = "none";
             overlay.style.display = "none";
         });
+        */
 
     </script>
 </body>

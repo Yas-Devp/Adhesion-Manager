@@ -1,4 +1,5 @@
 <?php
+    /*
     function getActivityId($libelle){
         global $conn;
         $sql = "SELECT * FROM activite WHERE libelle=?";
@@ -76,6 +77,7 @@
         $stmt->close();
         return $data;
     }
+    */
 
 
 

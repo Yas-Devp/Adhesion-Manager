@@ -1,14 +1,14 @@
 <?php
     include_once('../DB/db_activities.php');
 
-    function insererDB($f_j, $r_s, $n, $p, $adr, $vll, $tel, $email, $s_a, $web, $capital, $eff, $d_c, $ice, $rc){
+    function insererDB($f_j, $r_s, $n, $p, $adr, $vll, $tel, $email, $web, $capital, $eff, $d_c, $ice, $rc){
         global $conn;
         $f_j_allowed = ['PP', 'SARL', 'SNC', 'SA'];
         $f_j = strtoupper($f_j);
         $stmt = $conn->prepare(
             "INSERT INTO enterprise
-            ( nom, prenom, adresse, ville, telephone, email, site_web, capital, effectif, date_creation, raison_social, secteur_activite, forme_jurdique, ice, rc)
-            VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+            ( nom, prenom, adresse, ville, telephone, email, site_web, capital, effectif, date_creation, raison_social, forme_jurdique, ice, rc)
+            VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
         );
 
         if (!$stmt) {
@@ -20,7 +20,7 @@
         }
 
         $stmt->bind_param(
-            "sssssssdissssii",
+            "sssssssdisssii",
             $n,
             $p,
             $adr,
@@ -32,26 +32,27 @@
             $eff,
             $d_c,
             $r_s,
-            $s_a,
+            //$s_a,
             $f_j,
             $ice,
             $rc
         );
 
-        $conn->begin_transaction();
+        //$conn->begin_transaction();
 
         if ($stmt->execute()) {
 
             $id = $conn->insert_id;
 
-            $success = addActivity($s_a, $id);
-
+            //$success = addActivity($s_a, $id);
+            /*
             if (!$success) {
                 $conn->rollback();
                 die("Error inserting activities");
             }
 
             $conn->commit();
+            */
             /*echo "<div id=\"overlay\" style=\"position: absolute;width: 100%;height: 100%;z-index: 2;background-color: #0000002c;  display: flex;justify-content: center;display-direction:column; align-items:center;\">
                 <div style=\"width:300px;background-color: white; padding: 20px;border-radius: 20px; text-align: center; \">
                     <p style=\"color: black;\">les donnes sont inseres correctement !<p>
