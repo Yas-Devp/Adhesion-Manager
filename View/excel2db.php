@@ -144,6 +144,8 @@
                     </div>
                 </label>
             </div>
+            <span class="field-label" style="margin-top: 40px;">Ajouter Manuellement : </span>
+            <p>au tableau de l'<a href="http://localhost/phpmyadmin/index.php?route=/table/import&db=gestion_adhesion&table=enterprise&format=csv">enterprise</a> ou tableau des <a href="http://localhost/phpmyadmin/index.php?route=/table/import&db=gestion_adhesion&table=adhesion&format=csv"> adhesions</a><p>
         </div>
     </form>
 
